@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>STOP WATCH</title>
+	<link rel="stylesheet"  href="../MDB/css/bootstrap.css">
+	<link rel="stylesheet" href="../MDB/css/mdb.css">
+</head>
+<body>
+	<div class="container-fluid mt-5">
+	<div class="row">
+		<div class="col-md-5 m-auto">
+			<div class="card">
+				<div class="card-header bg-primary">
+			   		<h1 class="text-white text-center" > STOP WATCH</h1>
+				</div>
+				<div class=" card-body bg-light text-center">
+					<div class="timer d-flex justify-content-center">
+                  		<h2 id="minutes">00</h2>
+           				 <h2>:</h2>
+           				 <h2 id="seconds">00</h2>
+           				 <h2>:</h2>
+           				 <h2 id="miliseconds">00</h2>
+                        </div>
+					<button onclick="startTimer()">Start</button>
+					<button onclick="stopTimer()">Stop</button>
+					<button onclick="resetTimer()">Reset</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--SCRIPT CODE-->
+<script>
+let minutes = 0;
+let seconds = 0;
+let miliseconds = 0;
+let timer;
+
+function startTimer() {
+  // Start the timer by setting an interval that calls the updateTimer function every second
+  timer = setInterval(updateTimer, 10);
+}
+function stopTimer() {
+    // Stop the timer by clearing the interval
+    clearInterval(timer);
+}
+function resetTimer() {
+    // Reset the timer by changing values
+    minutes = 0;
+    seconds = 0;
+    miliseconds = 0;
+    document.getElementById("minutes").textContent = padTime(minutes);
+    document.getElementById("seconds").textContent = padTime(seconds);
+    document.getElementById("miliseconds").textContent = padTime(miliseconds);
+
+    // Stop the timer by clearing the interval
+    clearInterval(timer);
+}
+
+function updateTimer() {
+  // Increment the seconds
+  miliseconds++;
+
+  // Check if seconds reach 60, if so, reset seconds and increment minutes
+  if (miliseconds === 100) {
+    miliseconds = 0;
+    seconds++;
+
+    if (seconds === 60) {
+      seconds = 0;
+      minutes++;
+    }
+  }
+  // Update the HTML elements with the updated time values
+  document.getElementById("minutes").textContent = padTime(minutes);
+  document.getElementById("seconds").textContent = padTime(seconds);
+  document.getElementById("miliseconds").textContent = padTime(miliseconds);
+}
+
+function padTime(time) {
+  return time.toString().padStart(2, "0");
+}
+</script>
+</body>
+</html>
