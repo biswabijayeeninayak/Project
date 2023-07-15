@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		h1
+		{
+			color: red;
+		}
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Zomato Cart</title>
+	<link rel="stylesheet" href="../MDB/css/mdb.css">
+	<link rel="stylesheet" href="../MDB/css/bootstrap.css">
+</head>
+<body>
+    <div class="container-fluid">
+    	
+    	<div><h1>Zomato cart:-</h1>
+    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    		<button class="btn btn-danger">OrderNow</button>
+
+    	</div>
+
+    	<div class="pt3">
+    		<table class="table">
+    			<thead class="bg-danger text-white">
+    					<tr>
+    						<th>S.No</th>
+    						<th>Image</th>
+    						<th>Name</th>
+    						<th>Price</th>
+    						<th>Qty</th>
+    						<th>Total Price</th>
+    					</tr>
+    					<tbody class="table-danger">
+    					<tr>
+    						<td>1</td>
+    						<td><img src="../Images/subway.jpg" height="100px"></td>
+    						<td>Sub-Veg Combo</td>
+    						<td id="price">320</td>
+    						<td> <button class="btn" onclick="increment()"> + </button> <span id="count"></span> <button class="btn" onclick="decrement()"> - </button> </td>
+    						<td id="total"></td>
+    					</tr>
+    					</tbody>
+    			</thead>
+    		</table>
+    	</div>
+    </div>
+
+
+
+    	<script>
+
+    		let spanTag=document.querySelector("#count");
+    		let priceTag=document.querySelector("#price");
+            let total=document.querySelector("#total");
+             
+            total.innerText=(priceTag.innerText);
+
+    		let count=1;
+    		spanTag.innerText=count;
+    		function increment()
+    		{
+    			count++;
+    			spanTag.innerText=count;
+    			total.innerText=(priceTag.innerText)*(spanTag.innerText);
+    		}
+
+    		function decrement()
+    		{
+    			if (count>0)
+    			{
+    			count--;
+    			spanTag.innerText=count;
+    			total.innerText=(priceTag.innerText)*(spanTag.innerText);
+    		    }
+
+
+    		}
+    	</script>
+</body>
+</html>
