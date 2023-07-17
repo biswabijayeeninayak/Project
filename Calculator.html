@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../MDB/css/mdb.css">
+	<link rel="stylesheet" href="../MDB/css/bootstrap.css">
+	<title>Calculator</title>
+</head>
+<body>
+	<div class="container-fluid mt-5">
+		<div class="row">
+
+			<div class="col-md-3">
+    			<div class="card">
+
+     				<div class="card-header bg-success"><h1>Calculator</h1></div>   
+     				<div class="card-body bg-primary">
+     					<div><input type="text" name="" placeholder="Enter First Number" id="num1"></input></div>
+     					<div><input type="text" name="" placeholder="Enter Second Number" id="num2"></input></div>
+     				</div>	
+     				<div class="bg-secondary">
+                        <button id="plus" onclick="plus()">+</button>
+                        <button>-</button>
+                        <button>*</button>
+                        <button>/</button>
+     				</div>
+     				<div class="card-fotter bg-secondary"><h2><span id="result"></span></h2></div>
+
+    			</div>
+    		</div>
+		</div>
+	</div>
+	<script>
+		let plusTag=document.querySelector("#plus");
+		let num1Tag=document.querySelector("#num1");
+		let num2Tag=document.querySelector("#num2");
+		let resultTag=document.querySelector("#result");
+
+		resultTag.innerText= (plustag.innerText);
+		
+        function plus()
+        {
+		num1tag.innerText=num1;
+		num2Tag.innerText=num2;
+		resultTag.innerText= (num1tag.innerText)+(num2Tag.innerText);
+		}
+
+	</script>
+</body>
+</html>
